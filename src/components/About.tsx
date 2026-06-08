@@ -33,8 +33,28 @@ const About = () => {
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-          {/* Left — numbers grid */}
-          <div>
+          {/* Left — photo + numbers grid */}
+          <div className="flex flex-col gap-6">
+            {/* Photo */}
+            <div className="relative rounded-sm overflow-hidden" style={{ aspectRatio: '4/3' }}>
+              <img
+                src="https://cdn.poehali.dev/projects/4291bf37-aa2b-460a-b8ba-50efb6e0f68d/files/57e87da4-35af-4068-bc1d-c361a7f3be13.jpg"
+                alt="Разработчик"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0" style={{
+                background: 'linear-gradient(to top, rgba(13,11,8,0.7) 0%, transparent 50%)',
+              }} />
+              <div className="absolute inset-0" style={{
+                boxShadow: 'inset 0 0 0 1px rgba(201,168,76,0.2)',
+              }} />
+              {/* Badge */}
+              <div className="absolute bottom-4 left-4 card-glass px-4 py-2.5 rounded-sm">
+                <div style={{ fontSize: '0.65rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(237,224,196,0.5)', marginBottom: 2 }}>опыт</div>
+                <div className="gradient-text" style={{ fontFamily: 'Cormorant, Georgia, serif', fontSize: '1.6rem', fontWeight: 300, lineHeight: 1 }}>5+ лет</div>
+              </div>
+            </div>
+
             <div className="grid grid-cols-2 gap-px"
               style={{ border: '1px solid rgba(201,168,76,0.1)', background: 'rgba(201,168,76,0.1)' }}>
               {stats.map((item) => (

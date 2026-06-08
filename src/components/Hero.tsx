@@ -8,10 +8,10 @@ const Hero = () => {
       {/* Background photo */}
       <div className="absolute inset-0">
         <img
-          src="https://cdn.poehali.dev/projects/4291bf37-aa2b-460a-b8ba-50efb6e0f68d/files/6e7a1809-398d-49f9-a0af-91b524e250e5.jpg"
+          src="https://cdn.poehali.dev/projects/4291bf37-aa2b-460a-b8ba-50efb6e0f68d/files/ab9fb16b-ae20-4a19-a189-cabf33f8bbdd.jpg"
           alt="bg"
           className="w-full h-full object-cover"
-          style={{ opacity: 0.45 }}
+          style={{ opacity: 0.65 }}
         />
         <div className="absolute inset-0" style={{
           background: 'linear-gradient(to top, rgba(13,11,8,1) 0%, rgba(13,11,8,0.55) 55%, rgba(13,11,8,0.25) 100%)',
