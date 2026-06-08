@@ -1,5 +1,3 @@
-const HERO_BG = 'https://cdn.poehali.dev/projects/4291bf37-aa2b-460a-b8ba-50efb6e0f68d/bucket/8e43ad8a-7949-4b5b-ac60-3c3554e4b5bf.jpg';
-
 const Hero = () => {
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -7,15 +5,20 @@ const Hero = () => {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-end pb-20 overflow-hidden">
-      {/* Background photo */}
-      <div className="absolute inset-0">
-        <img src={HERO_BG} alt="hero" className="w-full h-full object-cover" style={{ opacity: 0.5 }} />
-        <div className="absolute inset-0" style={{
-          background: 'linear-gradient(to top, rgba(13,11,8,1) 0%, rgba(13,11,8,0.5) 50%, rgba(13,11,8,0.2) 100%)',
+      {/* Background — dark with gold ambient */}
+      <div className="absolute inset-0" style={{ background: 'var(--dark)' }}>
+        {/* Grid pattern */}
+        <div className="absolute inset-0 opacity-[0.04]" style={{
+          backgroundImage: `linear-gradient(rgba(201,168,76,0.6) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(201,168,76,0.6) 1px, transparent 1px)`,
+          backgroundSize: '80px 80px',
         }} />
-        <div className="absolute inset-0" style={{
-          background: 'radial-gradient(ellipse at 65% 50%, transparent 35%, rgba(13,11,8,0.7) 100%)',
-        }} />
+        {/* Warm glow top-right */}
+        <div className="absolute top-0 right-0 w-[700px] h-[600px] opacity-10 blur-[130px]"
+          style={{ background: 'radial-gradient(ellipse at top right, rgba(201,168,76,0.9) 0%, transparent 65%)' }} />
+        {/* Subtle glow bottom-left */}
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] opacity-6 blur-[100px]"
+          style={{ background: 'radial-gradient(circle, rgba(160,120,48,0.7) 0%, transparent 70%)' }} />
       </div>
 
       {/* Floating badges */}
