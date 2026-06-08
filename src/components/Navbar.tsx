@@ -19,19 +19,38 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? 'bg-[var(--dark)]/90 backdrop-blur-xl border-b border-white/5 py-3'
-          : 'bg-transparent py-5'
+        scrolled ? 'py-3' : 'py-5'
       }`}
+      style={{
+        background: scrolled ? 'rgba(13,11,8,0.92)' : 'transparent',
+        backdropFilter: scrolled ? 'blur(16px)' : 'none',
+        borderBottom: scrolled ? '1px solid rgba(201,168,76,0.1)' : 'none',
+      }}
     >
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[var(--violet)] to-[var(--cyan)] flex items-center justify-center">
-            <span className="text-white font-bold text-sm font-['Space_Grotesk']">С</span>
-          </div>
-          <span className="text-white font-semibold text-lg font-['Space_Grotesk']">Создам сайт</span>
+        {/* Logo */}
+        <div className="flex flex-col cursor-pointer leading-none" onClick={() => scrollTo('hero')}>
+          <span style={{
+            fontFamily: 'Cormorant, Georgia, serif',
+            fontSize: '1.4rem',
+            fontWeight: 600,
+            color: 'var(--gold)',
+            letterSpacing: '0.08em',
+          }}>
+            СОЗДАМ САЙТ
+          </span>
+          <span style={{
+            fontSize: '0.55rem',
+            letterSpacing: '0.25em',
+            textTransform: 'uppercase',
+            color: 'rgba(237,224,196,0.35)',
+            marginTop: 1,
+          }}>
+            Веб-разработка
+          </span>
         </div>
 
+        {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8">
           {[
             { label: 'Главная', id: 'hero' },
@@ -47,13 +66,14 @@ const Navbar = () => {
 
         <button
           onClick={() => scrollTo('contacts')}
-          className="hidden md:flex primary-btn px-5 py-2.5 rounded-xl text-sm items-center gap-2"
+          className="hidden md:block primary-btn px-5 py-2.5 rounded-sm"
         >
-          <span>Связаться</span>
+          Связаться
         </button>
 
         <button
-          className="md:hidden text-white/70 hover:text-white transition-colors"
+          className="md:hidden transition-colors"
+          style={{ color: 'var(--gold)' }}
           onClick={() => setMenuOpen(!menuOpen)}
         >
           <Icon name={menuOpen ? 'X' : 'Menu'} size={22} />
@@ -61,14 +81,15 @@ const Navbar = () => {
       </div>
 
       {menuOpen && (
-        <div className="md:hidden bg-[var(--dark-2)] border-t border-white/5 px-6 py-4 flex flex-col gap-4">
+        <div style={{ background: 'rgba(13,11,8,0.97)', borderTop: '1px solid rgba(201,168,76,0.1)' }}
+          className="md:hidden px-6 py-5 flex flex-col gap-5">
           {[
             { label: 'Главная', id: 'hero' },
             { label: 'Услуги', id: 'services' },
             { label: 'О нас', id: 'about' },
             { label: 'Контакты', id: 'contacts' },
           ].map((item) => (
-            <button key={item.id} onClick={() => scrollTo(item.id)} className="nav-link text-left text-base">
+            <button key={item.id} onClick={() => scrollTo(item.id)} className="nav-link text-left text-sm">
               {item.label}
             </button>
           ))}

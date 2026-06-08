@@ -14,91 +14,115 @@ const achievements = [
   { icon: 'Clock', text: 'Сдаю в срок всегда' },
 ];
 
+const stats = [
+  { n: '100+', l: 'проектов', icon: 'Globe' },
+  { n: '5+', l: 'лет опыта', icon: 'Award' },
+  { n: '98%', l: 'довольных', icon: 'Heart' },
+  { n: '24/7', l: 'поддержка', icon: 'Headphones' },
+];
+
 const About = () => {
   return (
-    <section id="about" className="py-24 md:py-32 relative overflow-hidden">
-      {/* Bg */}
-      <div
-        className="absolute bottom-0 right-0 w-[600px] h-[600px] opacity-10 blur-[140px] pointer-events-none"
-        style={{ background: 'radial-gradient(circle, var(--cyan) 0%, transparent 70%)' }}
-      />
+    <section id="about" className="py-24 md:py-32 relative overflow-hidden"
+      style={{ background: 'var(--dark)' }}>
+
+      {/* Ambient */}
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] opacity-[0.07] blur-[130px] pointer-events-none"
+        style={{ background: 'radial-gradient(circle, rgba(201,168,76,0.8) 0%, transparent 70%)' }} />
 
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left — image + badges */}
-          <div className="relative">
-            <div className="relative rounded-3xl overflow-hidden aspect-square max-w-sm mx-auto lg:mx-0">
-              <img
-                src="https://cdn.poehali.dev/projects/4291bf37-aa2b-460a-b8ba-50efb6e0f68d/files/e20395c2-37cf-4fc5-afa2-deda313c5177.jpg"
-                alt="Разработчик"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[var(--dark)] via-transparent to-transparent opacity-60" />
-              <div
-                className="absolute inset-0 rounded-3xl"
-                style={{ boxShadow: 'inset 0 0 0 1px rgba(124,58,237,0.3)' }}
-              />
-            </div>
 
-            {/* Floating card */}
-            <div className="absolute -bottom-4 -right-4 lg:bottom-6 lg:-right-6 card-glass px-5 py-4 rounded-2xl">
-              <div className="text-3xl font-bold gradient-text">5+</div>
-              <div className="text-white/50 text-sm">лет в разработке</div>
-            </div>
-
-            {/* Spinning ring */}
-            <div
-              className="absolute -top-6 -left-6 w-20 h-20 rounded-full border border-dashed border-[var(--violet)]/30 animate-spin-slow"
-            />
-          </div>
-
-          {/* Right — content */}
+          {/* Left — numbers grid */}
           <div>
-            <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2 mb-6">
-              <span className="text-[var(--cyan)] text-sm font-medium">Обо мне</span>
-            </div>
-
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-              Создаю сайты,{' '}
-              <span className="gradient-text-pink">которые работают</span>
-            </h2>
-
-            <p className="text-white/50 leading-relaxed mb-4">
-              Привет! Я — веб-разработчик с более чем 5-летним опытом создания современных сайтов и
-              приложений. Специализируюсь на React, дизайн-системах и быстром запуске проектов.
-            </p>
-            <p className="text-white/50 leading-relaxed mb-8">
-              Моя цель — не просто «сделать красиво», но создать инструмент, который приносит реальные
-              результаты вашему бизнесу.
-            </p>
-
-            {/* Skills */}
-            <div className="space-y-4 mb-8">
-              {skills.map((skill) => (
-                <div key={skill.name}>
-                  <div className="flex justify-between mb-1.5">
-                    <span className="text-white/70 text-sm">{skill.name}</span>
-                    <span className="text-white/40 text-sm">{skill.level}%</span>
+            <div className="grid grid-cols-2 gap-px"
+              style={{ border: '1px solid rgba(201,168,76,0.1)', background: 'rgba(201,168,76,0.1)' }}>
+              {stats.map((item) => (
+                <div key={item.l} className="p-8 flex flex-col gap-2"
+                  style={{ background: 'var(--dark-3)' }}>
+                  <Icon name={item.icon} size={16} style={{ color: 'var(--gold)', opacity: 0.55, marginBottom: 4 }} />
+                  <div className="gradient-text" style={{
+                    fontFamily: 'Cormorant, Georgia, serif',
+                    fontSize: '2.8rem',
+                    fontWeight: 300,
+                    lineHeight: 1,
+                  }}>
+                    {item.n}
                   </div>
-                  <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
-                    <div
-                      className="h-full rounded-full"
-                      style={{
-                        width: `${skill.level}%`,
-                        background: 'linear-gradient(90deg, var(--violet), var(--cyan))',
-                      }}
-                    />
+                  <div style={{
+                    fontSize: '0.7rem',
+                    color: 'rgba(237,224,196,0.45)',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.08em',
+                  }}>
+                    {item.l}
                   </div>
                 </div>
               ))}
             </div>
 
-            {/* Achievements */}
-            <div className="grid grid-cols-2 gap-3">
+            {/* Skills */}
+            <div className="mt-8 space-y-4">
+              {skills.map((skill) => (
+                <div key={skill.name}>
+                  <div className="flex justify-between mb-1.5">
+                    <span style={{ fontSize: '0.82rem', color: 'rgba(237,224,196,0.6)' }}>{skill.name}</span>
+                    <span style={{ fontSize: '0.75rem', color: 'rgba(201,168,76,0.6)' }}>{skill.level}%</span>
+                  </div>
+                  <div className="h-1 rounded-full overflow-hidden" style={{ background: 'rgba(201,168,76,0.1)' }}>
+                    <div className="h-full rounded-full" style={{
+                      width: `${skill.level}%`,
+                      background: 'linear-gradient(90deg, var(--gold-dim), var(--gold-light))',
+                    }} />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right — text */}
+          <div>
+            <span style={{ fontSize: '0.68rem', letterSpacing: '0.28em', textTransform: 'uppercase', color: 'var(--gold)' }}>
+              Кто я
+            </span>
+            <h2 style={{
+              fontFamily: 'Cormorant, Georgia, serif',
+              fontSize: 'clamp(2.2rem, 4vw, 3rem)',
+              fontWeight: 300,
+              color: '#EDE0C4',
+              marginTop: '0.5rem',
+              lineHeight: 1.15,
+              marginBottom: '1.5rem',
+            }}>
+              Создаю сайты<br />
+              <em style={{ fontStyle: 'italic', color: 'var(--gold)' }}>с душой и точностью</em>
+            </h2>
+            <div className="section-divider mb-6" />
+
+            <p style={{ fontSize: '0.97rem', color: 'rgba(237,224,196,0.55)', lineHeight: 1.85, marginBottom: '1.25rem' }}>
+              Привет! Я — веб-разработчик с более чем 5-летним опытом создания современных сайтов
+              и приложений. Специализируюсь на React, дизайн-системах и быстром запуске проектов.
+            </p>
+            <p style={{ fontSize: '0.97rem', color: 'rgba(237,224,196,0.55)', lineHeight: 1.85, marginBottom: '2rem' }}>
+              Моя цель — не просто «сделать красиво», но создать инструмент,
+              который приносит реальные результаты вашему бизнесу.
+            </p>
+
+            <div className="flex flex-col gap-3">
               {achievements.map((item) => (
-                <div key={item.text} className="flex items-center gap-2.5 card-glass rounded-xl px-4 py-3">
-                  <Icon name={item.icon} size={16} className="text-[var(--violet-light)] flex-shrink-0" />
-                  <span className="text-white/60 text-xs">{item.text}</span>
+                <div key={item.text} className="flex items-center gap-3">
+                  <div style={{
+                    width: 32, height: 32,
+                    border: '1px solid rgba(201,168,76,0.2)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    flexShrink: 0,
+                    borderRadius: '2px',
+                  }}>
+                    <Icon name={item.icon} size={14} style={{ color: 'var(--gold)' }} />
+                  </div>
+                  <span style={{ fontSize: '0.875rem', color: 'rgba(237,224,196,0.6)' }}>
+                    {item.text}
+                  </span>
                 </div>
               ))}
             </div>

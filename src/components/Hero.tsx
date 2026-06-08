@@ -1,101 +1,111 @@
+const HERO_BG = 'https://cdn.poehali.dev/projects/4291bf37-aa2b-460a-b8ba-50efb6e0f68d/bucket/8e43ad8a-7949-4b5b-ac60-3c3554e4b5bf.jpg';
+
 const Hero = () => {
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background blobs */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div
-          className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full opacity-20 blur-[120px]"
-          style={{ background: 'radial-gradient(circle, var(--violet) 0%, transparent 70%)' }}
-        />
-        <div
-          className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full opacity-15 blur-[100px]"
-          style={{ background: 'radial-gradient(circle, var(--cyan) 0%, transparent 70%)' }}
-        />
-        <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full opacity-5 blur-[150px]"
-          style={{ background: 'radial-gradient(circle, var(--pink) 0%, transparent 60%)' }}
-        />
+    <section id="hero" className="relative min-h-screen flex items-end pb-20 overflow-hidden">
+      {/* Background photo */}
+      <div className="absolute inset-0">
+        <img src={HERO_BG} alt="hero" className="w-full h-full object-cover" style={{ opacity: 0.5 }} />
+        <div className="absolute inset-0" style={{
+          background: 'linear-gradient(to top, rgba(13,11,8,1) 0%, rgba(13,11,8,0.5) 50%, rgba(13,11,8,0.2) 100%)',
+        }} />
+        <div className="absolute inset-0" style={{
+          background: 'radial-gradient(ellipse at 65% 50%, transparent 35%, rgba(13,11,8,0.7) 100%)',
+        }} />
       </div>
-
-      {/* Grid pattern */}
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)`,
-          backgroundSize: '60px 60px',
-        }}
-      />
 
       {/* Floating badges */}
-      <div className="absolute top-32 right-12 hidden lg:flex animate-float delay-1">
-        <div className="card-glass px-4 py-3 rounded-2xl flex items-center gap-2.5">
-          <div className="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse" />
-          <span className="text-white/80 text-sm font-medium">100+ проектов</span>
+      <div className="absolute top-32 right-16 hidden lg:block animate-float delay-1">
+        <div className="card-glass px-4 py-3 rounded-sm flex items-center gap-2.5">
+          <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+          <span style={{ fontSize: '0.8rem', color: 'rgba(237,224,196,0.8)' }}>100+ проектов</span>
         </div>
       </div>
-      <div className="absolute bottom-40 left-12 hidden lg:flex animate-float" style={{ animationDelay: '2s' }}>
-        <div className="card-glass px-4 py-3 rounded-2xl flex items-center gap-2.5">
-          <span className="text-xl">⚡</span>
-          <span className="text-white/80 text-sm font-medium">Быстро и качественно</span>
+      <div className="absolute bottom-44 left-16 hidden lg:block animate-float" style={{ animationDelay: '2.5s' }}>
+        <div className="card-glass px-4 py-3 rounded-sm flex items-center gap-2.5">
+          <span>⚡</span>
+          <span style={{ fontSize: '0.8rem', color: 'rgba(237,224,196,0.8)' }}>Сдаю в срок</span>
         </div>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-        <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2 mb-8 animate-fade-up">
-          <div className="w-2 h-2 rounded-full bg-[var(--violet-light)] animate-pulse" />
-          <span className="text-white/70 text-sm">Веб-разработка нового поколения</span>
+      <div className="relative z-10 max-w-6xl mx-auto px-6 w-full">
+        <div className="max-w-2xl">
+          {/* Tag */}
+          <div className="inline-flex items-center gap-2 mb-6 animate-fade-up"
+            style={{ border: '1px solid rgba(201,168,76,0.25)', padding: '0.35rem 1rem', borderRadius: '2px' }}>
+            <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: 'var(--gold)' }} />
+            <span style={{ fontSize: '0.68rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--gold)' }}>
+              Веб-разработка
+            </span>
+          </div>
+
+          {/* Headline */}
+          <h1 className="animate-fade-up delay-1" style={{
+            fontFamily: 'Cormorant, Georgia, serif',
+            fontSize: 'clamp(3.2rem, 7vw, 5.5rem)',
+            fontWeight: 300,
+            lineHeight: 1.05,
+            marginBottom: '1.25rem',
+            color: '#EDE0C4',
+          }}>
+            Создам сайт,<br />
+            <span className="gradient-text">который продаёт</span>
+          </h1>
+
+          <p className="animate-fade-up delay-2" style={{
+            fontSize: '1.05rem',
+            lineHeight: 1.75,
+            color: 'rgba(237,224,196,0.55)',
+            maxWidth: '480px',
+            marginBottom: '2.5rem',
+          }}>
+            Разрабатываю современные сайты и веб-приложения.
+            Быстро, красиво, с результатом для бизнеса.
+          </p>
+
+          {/* Buttons */}
+          <div className="flex flex-wrap gap-4 animate-fade-up delay-3">
+            <button onClick={() => scrollTo('contacts')} className="primary-btn px-8 py-3.5 rounded-sm">
+              Обсудить проект
+            </button>
+            <button onClick={() => scrollTo('services')} className="outline-btn px-8 py-3.5 rounded-sm">
+              Смотреть услуги
+            </button>
+          </div>
         </div>
 
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-6 animate-fade-up delay-1">
-          <span className="text-white">Создам сайт,</span>
-          <br />
-          <span className="gradient-text">который продаёт</span>
-        </h1>
-
-        <p className="text-white/50 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-up delay-2">
-          Разрабатываю современные сайты и веб-приложения. Быстро, красиво, с результатом для бизнеса.
-        </p>
-
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up delay-3">
-          <button
-            onClick={() => scrollTo('contacts')}
-            className="primary-btn px-8 py-4 rounded-2xl text-base w-full sm:w-auto"
-          >
-            <span>Обсудить проект</span>
-          </button>
-          <button
-            onClick={() => scrollTo('services')}
-            className="px-8 py-4 rounded-2xl text-base font-semibold text-white/70 hover:text-white border border-white/10 hover:border-white/20 transition-all duration-300 w-full sm:w-auto"
-          >
-            Смотреть услуги
-          </button>
-        </div>
-
-        {/* Stats */}
-        <div className="mt-20 grid grid-cols-3 gap-8 max-w-lg mx-auto animate-fade-up delay-4">
+        {/* Stats bar */}
+        <div className="animate-fade-up delay-4 mt-16 grid grid-cols-3 gap-8 max-w-md"
+          style={{ borderTop: '1px solid rgba(201,168,76,0.15)', paddingTop: '1.75rem' }}>
           {[
             { num: '100+', label: 'Проектов' },
             { num: '5+', label: 'Лет опыта' },
             { num: '98%', label: 'Довольных' },
-          ].map((stat) => (
-            <div key={stat.label} className="text-center">
-              <div className="text-3xl md:text-4xl font-bold gradient-text mb-1">{stat.num}</div>
-              <div className="text-white/40 text-sm">{stat.label}</div>
+          ].map((s) => (
+            <div key={s.label}>
+              <div className="gradient-text" style={{
+                fontFamily: 'Cormorant, Georgia, serif',
+                fontSize: '2.4rem',
+                fontWeight: 300,
+                lineHeight: 1,
+              }}>{s.num}</div>
+              <div style={{ fontSize: '0.7rem', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(237,224,196,0.4)', marginTop: 4 }}>
+                {s.label}
+              </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce opacity-40">
-        <div className="w-5 h-9 border-2 border-white/30 rounded-full flex justify-center pt-1.5">
-          <div className="w-1 h-2 bg-white/60 rounded-full" />
+      {/* Scroll hint */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 opacity-30 animate-bounce">
+        <div className="w-5 h-8 border border-[var(--gold)] rounded-full flex justify-center pt-1.5">
+          <div className="w-1 h-1.5 rounded-full" style={{ background: 'var(--gold)' }} />
         </div>
       </div>
     </section>

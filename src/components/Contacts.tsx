@@ -1,100 +1,103 @@
 import Icon from '@/components/ui/icon';
 
 const contacts = [
-  {
-    icon: 'Mail',
-    label: 'Email',
-    value: 'hello@sozdamsait.ru',
-    href: 'mailto:hello@sozdamsait.ru',
-    color: 'from-violet-500 to-purple-600',
-  },
-  {
-    icon: 'Phone',
-    label: 'Телефон',
-    value: '+7 (999) 000-00-00',
-    href: 'tel:+79990000000',
-    color: 'from-cyan-400 to-blue-500',
-  },
-  {
-    icon: 'MessageCircle',
-    label: 'Telegram',
-    value: '@sozdamsait',
-    href: 'https://t.me/sozdamsait',
-    color: 'from-blue-400 to-cyan-500',
-  },
+  { icon: 'Mail', label: 'Email', value: 'hello@sozdamsait.ru', href: 'mailto:hello@sozdamsait.ru' },
+  { icon: 'Phone', label: 'Телефон', value: '+7 (999) 000-00-00', href: 'tel:+79990000000' },
+  { icon: 'MessageCircle', label: 'Telegram', value: '@sozdamsait', href: 'https://t.me/sozdamsait' },
+  { icon: 'Clock', label: 'Режим работы', value: 'Пн–Пт: 9:00–20:00', href: '#' },
 ];
 
 const Contacts = () => {
   return (
-    <section id="contacts" className="py-24 md:py-32 relative overflow-hidden">
-      {/* Bg */}
-      <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] opacity-10 blur-[120px] pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse, var(--violet) 0%, transparent 70%)' }}
-      />
+    <section id="contacts" className="py-24 md:py-32 relative overflow-hidden"
+      style={{ background: 'var(--dark-2)', borderTop: '1px solid rgba(201,168,76,0.08)' }}>
+
+      {/* Ambient */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] opacity-[0.08] blur-[120px] pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse, rgba(201,168,76,0.9) 0%, transparent 70%)' }} />
 
       <div className="max-w-5xl mx-auto px-6">
+        {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2 mb-5">
-            <span className="text-[var(--pink)] text-sm font-medium">Поговорим</span>
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <span style={{ fontSize: '0.68rem', letterSpacing: '0.28em', textTransform: 'uppercase', color: 'var(--gold)' }}>
+            Поговорим
+          </span>
+          <h2 style={{
+            fontFamily: 'Cormorant, Georgia, serif',
+            fontSize: 'clamp(2.4rem, 5vw, 3.5rem)',
+            fontWeight: 300,
+            color: '#EDE0C4',
+            marginTop: '0.5rem',
+            lineHeight: 1.1,
+            marginBottom: '0.75rem',
+          }}>
             Свяжитесь <span className="gradient-text">со мной</span>
           </h2>
-          <p className="text-white/40 text-lg max-w-md mx-auto">
+          <div className="section-divider mx-auto" />
+          <p style={{ fontSize: '1rem', color: 'rgba(237,224,196,0.45)', marginTop: '1rem' }}>
             Готов обсудить ваш проект. Отвечаю в течение часа.
           </p>
         </div>
 
-        {/* CTA big card */}
-        <div className="relative rounded-3xl overflow-hidden mb-8 p-8 md:p-12 text-center"
-          style={{ background: 'linear-gradient(135deg, rgba(124,58,237,0.15) 0%, rgba(6,182,212,0.1) 100%)', border: '1px solid rgba(124,58,237,0.2)' }}>
-          <div
-            className="absolute inset-0 pointer-events-none opacity-30"
-            style={{
-              backgroundImage: `linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)`,
-              backgroundSize: '40px 40px',
-            }}
-          />
+        {/* CTA card */}
+        <div className="relative overflow-hidden mb-8 p-10 md:p-14 text-center rounded-sm"
+          style={{
+            background: 'linear-gradient(135deg, rgba(201,168,76,0.08) 0%, rgba(160,120,48,0.05) 100%)',
+            border: '1px solid rgba(201,168,76,0.18)',
+          }}>
+          <div className="absolute inset-0 pointer-events-none opacity-20" style={{
+            backgroundImage: `linear-gradient(rgba(201,168,76,0.08) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(201,168,76,0.08) 1px, transparent 1px)`,
+            backgroundSize: '50px 50px',
+          }} />
           <div className="relative z-10">
-            <div className="text-5xl mb-4">🚀</div>
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
+            <div className="text-4xl mb-5">🚀</div>
+            <h3 style={{
+              fontFamily: 'Cormorant, Georgia, serif',
+              fontSize: 'clamp(1.6rem, 3vw, 2.2rem)',
+              fontWeight: 400,
+              color: '#EDE0C4',
+              marginBottom: '0.75rem',
+            }}>
               Готовы запустить проект?
             </h3>
-            <p className="text-white/50 mb-8 max-w-md mx-auto">
-              Напишите мне сегодня — и через неделю у вас уже будет работающий сайт.
+            <p style={{ fontSize: '0.95rem', color: 'rgba(237,224,196,0.5)', marginBottom: '2rem', maxWidth: '440px', margin: '0 auto 2rem' }}>
+              Напишите сегодня — и через неделю у вас уже будет работающий сайт.
             </p>
-            <a
-              href="mailto:hello@sozdamsait.ru"
-              className="primary-btn inline-flex items-center gap-2 px-8 py-4 rounded-2xl text-base"
-            >
-              <span>Написать сейчас</span>
-              <Icon name="ArrowRight" size={18} />
+            <a href="mailto:hello@sozdamsait.ru"
+              className="primary-btn inline-flex items-center gap-2 px-8 py-3.5 rounded-sm">
+              Написать сейчас
+              <Icon name="ArrowRight" size={16} />
             </a>
           </div>
         </div>
 
         {/* Contact cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {contacts.map((contact) => (
-            <a
-              key={contact.label}
-              href={contact.href}
-              target={contact.href.startsWith('http') ? '_blank' : undefined}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-px"
+          style={{ border: '1px solid rgba(201,168,76,0.08)', background: 'rgba(201,168,76,0.08)' }}>
+          {contacts.map((c) => (
+            <a key={c.label} href={c.href}
+              target={c.href.startsWith('http') ? '_blank' : undefined}
               rel="noreferrer"
-              className="card-glass rounded-2xl p-5 flex items-center gap-4 group hover:-translate-y-1 transition-all duration-300"
+              className="flex flex-col gap-2 p-5 transition-all duration-300"
+              style={{ background: 'var(--dark-3)', textDecoration: 'none' }}
+              onMouseEnter={e => (e.currentTarget.style.background = 'var(--dark-4)')}
+              onMouseLeave={e => (e.currentTarget.style.background = 'var(--dark-3)')}
             >
-              <div
-                className={`w-11 h-11 rounded-xl bg-gradient-to-br ${contact.color} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}
-              >
-                <Icon name={contact.icon} size={20} className="text-white" />
+              <div style={{
+                width: 36, height: 36,
+                border: '1px solid rgba(201,168,76,0.2)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                borderRadius: '2px', marginBottom: 4,
+              }}>
+                <Icon name={c.icon} size={15} style={{ color: 'var(--gold)' }} />
               </div>
-              <div>
-                <div className="text-white/40 text-xs mb-0.5">{contact.label}</div>
-                <div className="text-white/80 text-sm font-medium">{contact.value}</div>
+              <div style={{ fontSize: '0.65rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(237,224,196,0.3)' }}>
+                {c.label}
               </div>
-              <Icon name="ArrowUpRight" size={16} className="text-white/20 ml-auto group-hover:text-white/50 transition-colors" />
+              <div style={{ fontSize: '0.875rem', color: 'rgba(237,224,196,0.75)' }}>
+                {c.value}
+              </div>
             </a>
           ))}
         </div>

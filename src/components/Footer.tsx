@@ -4,13 +4,12 @@ const Footer = () => {
   };
 
   return (
-    <footer className="border-t border-white/5 py-10">
-      <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-        <div className="flex items-center gap-2">
-          <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-[var(--violet)] to-[var(--cyan)] flex items-center justify-center">
-            <span className="text-white font-bold text-xs font-['Space_Grotesk']">С</span>
-          </div>
-          <span className="text-white/60 text-sm font-medium">Создам сайт</span>
+    <footer style={{ background: 'var(--dark)', borderTop: '1px solid rgba(201,168,76,0.08)', padding: '2rem 1.5rem' }}>
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="flex flex-col leading-none">
+          <span style={{ fontFamily: 'Cormorant, Georgia, serif', fontSize: '1.15rem', color: 'var(--gold)', letterSpacing: '0.08em' }}>
+            СОЗДАМ САЙТ
+          </span>
         </div>
 
         <div className="flex items-center gap-6">
@@ -20,17 +19,16 @@ const Footer = () => {
             { label: 'О нас', id: 'about' },
             { label: 'Контакты', id: 'contacts' },
           ].map((item) => (
-            <button
-              key={item.id}
-              onClick={() => scrollTo(item.id)}
-              className="text-white/40 hover:text-white/70 text-sm transition-colors"
-            >
+            <button key={item.id} onClick={() => scrollTo(item.id)}
+              className="nav-link" style={{ fontSize: '0.65rem' }}>
               {item.label}
             </button>
           ))}
         </div>
 
-        <div className="text-white/25 text-xs">© 2024 Создам сайт</div>
+        <div style={{ fontSize: '0.68rem', color: 'rgba(237,224,196,0.25)', letterSpacing: '0.06em' }}>
+          © 2024 Создам сайт
+        </div>
       </div>
     </footer>
   );
